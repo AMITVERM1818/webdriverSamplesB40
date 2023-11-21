@@ -1,5 +1,7 @@
 package testScripts;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class GooglePageTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -16,14 +18,37 @@ public class GooglePageTest {
 		driver.navigate().to("https://www.google.com/");
 		WebElement srcbox = driver.findElement(By.id("APjFqb"));
 		srcbox.sendKeys("Java Tutorial");
-		srcbox.sendKeys(Keys.ENTER);
-		System.out.println("Page Title...."+driver.getTitle());
-		System.out.println("Page URL....."+driver.getCurrentUrl());
-		driver.navigate().back();
-		driver.navigate().forward();
-		driver.navigate().refresh();	
+		Thread.sleep(2000);
+//		srcbox.sendKeys(Keys.ENTER);
+//		srcbox.submit(); ---- For Submitting the Search Form
+//		System.out.println("Page Title...."+driver.getTitle());
+//		System.out.println("Page URL....."+driver.getCurrentUrl());
+//		driver.navigate().back();
+//		driver.navigate().forward();
+//		driver.navigate().refresh();	
 		
-		System.out.println("Modified in Phase2");
+//		System.out.println("Modified in Phase2");
+		
+		List<WebElement> list = driver.findElements(By.xpath("(//ul[@role='listbox'])[1]//li//descendant::div[@class='wM6W7d']"));
+		
+		System.out.println("Number of Search Results Suggestions for Java Tutorial = "+list.size());
+		
+		System.out.println("Java Tutorial Search Results Suggestions List....");
+		
+//		For Loop to print the List of Suggestion
+		for(WebElement item : list) {
+			
+			System.out.println(item.getText());
+		}
+		
+//		For Loop to search for Java tutorial pdf in search result suggestion and click on it
+		for(int i = 0;i<list.size();i++) {
+			
+			if(list.get(i).getText().equalsIgnoreCase("java tutorial pdf")) {
+				list.get(i).click();
+				break;
+			}
+		}
 		
 
 	}

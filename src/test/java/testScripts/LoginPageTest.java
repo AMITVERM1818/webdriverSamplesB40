@@ -32,7 +32,11 @@ public class LoginPageTest {
 		driver.get("https://accounts.lambdatest.com/register");
 //		Entering Wrong Email Address
 		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("ABC");
-		driver.findElement(By.xpath("//button[@type='submit']")).click();
+		
+//		By CSS Selector
+		driver.findElement(By.cssSelector(".radius")).click();
+		
+//		driver.findElement(By.xpath("//button[@type='submit']")).click();
 //		Printing Incorrect Email Address Error
 		System.out.println("Wrong Email Id Error Message..."+driver.findElement(By.xpath("//p[@data-testid='errors-email']")).getText());
 		
