@@ -19,7 +19,8 @@ public class DisplayTest {
 		String strPlaceholder = driver.findElement(By.id("searchBar")).getAttribute("placeholder");
 		System.out.println(strPlaceholder);
 //		isDisplayed method usage and demonstration of hidden element
-		WebElement closeIcon = driver.findElement(By.cssSelector("a[title = 'Clear text'"));
+//		So once "Test" is entered in Search Bar -> close icon becomes visible on Webpage
+		WebElement closeIcon = driver.findElement(By.cssSelector("a[title = 'Clear text']"));
 		System.out.println(closeIcon.isDisplayed());
 		if(closeIcon.isDisplayed()) {
 			
