@@ -7,10 +7,23 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class GooglePageTest {
 
 	public static void main(String[] args) throws InterruptedException {
+		
+		ChromeOptions options = new ChromeOptions();
+
+//		To Test in Headless Mode
+//		options.addArguments("--headless");
+//		options.addArguments("--no-sandbox");
+		
+//		To run in different Browser Versions
+//		options.setBrowserVersion("115");
+//		WebDriver driver = new ChromeDriver(options);
+
+		
 		
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
