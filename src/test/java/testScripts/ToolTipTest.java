@@ -14,12 +14,13 @@ public class ToolTipTest {
 		
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
-		
 		driver.get("https://jqueryui.com/tooltip/");
-		// First locating frame and switching into it from Main Page
+		
+//		First locating frame and switching into it from Main Page
 		WebElement frame1 = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
 		driver.switchTo().frame(frame1);
 		driver.findElement(By.id("age")).sendKeys(Keys.PAGE_DOWN); // to scroll down
+		
 //		Locating Element
 		WebElement textbox = driver.findElement(By.xpath("//input[@id='age']"));
 		Actions act = new Actions(driver);
