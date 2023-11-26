@@ -1,5 +1,6 @@
 package testScripts;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -29,6 +30,8 @@ public class GooglePageTest {
 		driver.manage().window().maximize();
 		//driver.get("https://www.google.com/");
 		driver.navigate().to("https://www.google.com/");
+//		Applying Implicit Wait
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		WebElement srcbox = driver.findElement(By.id("APjFqb"));
 		srcbox.sendKeys("Java Tutorial");
 		Thread.sleep(2000);
@@ -52,7 +55,7 @@ public class GooglePageTest {
 		
 //		For Loop to print the List of Suggestion
 		for(WebElement item : list) {
-			
+			 
 			System.out.println(item.getText());
 			
 		}
